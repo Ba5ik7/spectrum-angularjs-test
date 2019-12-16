@@ -10,6 +10,7 @@ import { FooterComponent } from './common/footer/footer.component';
 import { HomeComponent } from './routes/home/home.component';
 import { CustomerDetailsComponent } from './routes/customer-details/customer-details.component';
 import { InputFieldComponent } from './common/input-field/input-field.component';
+import { SearchResultListComponent } from './common/search-result-list/search-result-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InputFieldComponent } from './common/input-field/input-field.component'
     FooterComponent,
     HomeComponent,
     CustomerDetailsComponent,
-    InputFieldComponent
+    InputFieldComponent,
+    SearchResultListComponent
   ],
   imports: [
     BrowserModule,

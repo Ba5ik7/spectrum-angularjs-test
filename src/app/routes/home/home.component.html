@@ -4,8 +4,13 @@
         <div class="card-content">
           <span class="card-title">Find Customer</span>
           <div class="row">
-            <input-field [control]="searchControl" inputId="customer_search_input" labelText="Type to search" wrapperClasses='col s6'></input-field>
+            <input-field 
+              [control]="searchControl" 
+              inputId="customer_search_input" 
+              labelText="Type to search" 
+              wrapperClasses='col s6'></input-field>
           </div>
+          <search-result-list [results]=fakeData></search-result-list>
         </div>
     </div>
   </div>

@@ -9,6 +9,8 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
+  fakeData = [{ name: 'Test'}, { name: 'Test1'}, { name: 'Test2'}, { name: 'Test3'}];
+
   searchControl: FormControl = new FormControl('');
 
   constructor(private customerService: CustomerService) { }
