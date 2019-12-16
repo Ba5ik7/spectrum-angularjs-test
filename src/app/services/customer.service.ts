@@ -6,23 +6,30 @@ import { Customer } from '../interfaces/customer';
 })
 export class CustomerService {
 
-  customers: Array<Customer>;
+  customers: Array<Customer> = new Array;
 
   constructor() { }
 
   create() {
-
+    this.customers.push({
+      id: 2,
+      name: 'Wesley',
+      transactions: [],
+      points: 100
+    });
   }
 
   read() {
+    return this.customers;
+  }
+
+  update(customerID: number) {
 
   }
 
-  update() {
+  delete(customerID: number) {
 
   }
 
-  delete() {
 
-  }
 }
