@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
 import { FormControl } from '@angular/forms';
+import { Observable, combineLatest, from } from 'rxjs';
+import { startWith, map, } from 'rxjs/operators';
+import { Customer } from 'src/app/interfaces/customer';
 
 @Component({
   selector: 'app-home',
@@ -8,17 +11,20 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  fakeData = [{ name: 'Test'}, { name: 'Test1'}, { name: 'Test2'}, { name: 'Test3'}];
-
   searchControl: FormControl = new FormControl('');
+  filter$: Observable<string>;
+  customers$: Observable<any>;
+  filteredCustomers$: Observable<Customer>;
 
   constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
-    // this.customerService.create();
-    let test = this.customerService.read();
-    this.searchControl.valueChanges.subscribe( val => console.log(`Hello ${val}`));
+    this.customers$ = from(this.customerService.customers);
+    this.filter$ = this.searchControl.valueChanges.pipe(startWith(''));
+    this.filteredCustomers$ = combineLatest(this.customers$, this.filter$).pipe(
+      map(([customers, filterString]) => {
+        return customers.filter(customers => customers.name.indexOf(filterString) !== -1)
+      })
+    );
   }
-
 }

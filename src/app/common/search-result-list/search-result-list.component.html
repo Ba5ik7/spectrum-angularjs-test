@@ -1,3 +1,3 @@
-<ul *ngFor="let item of results">
-  <li>{{item.name}}</li>
+<ul class="collection">
+  <li *ngFor="let item of results | async"  class="collection-item">{{item.name}}</li>
 </ul>

@@ -8,9 +8,9 @@
               [control]="searchControl" 
               inputId="customer_search_input" 
               labelText="Type to search" 
-              wrapperClasses='col s6'></input-field>
-          </div>
-          <search-result-list [results]=fakeData></search-result-list>
+              wrapperClasses='col s12 m6'></input-field>
+              <search-result-list class="col s12" [results]=filteredCustomers$></search-result-list>
+            </div>
         </div>
     </div>
   </div>
