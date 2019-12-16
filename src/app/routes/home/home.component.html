@@ -1,8 +1,12 @@
 <div class="row">
   <div class="col s12">
-    <div class="card-panel">
-      I am a very simple card. I am good at containing small bits of information.
-      I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+    <div class="card">
+        <div class="card-content">
+          <span class="card-title">Find Customer</span>
+          <div class="row">
+            <input-field [control]="searchControl" inputId="customer_search_input" labelText="Type to search" wrapperClasses='col s6'></input-field>
+          </div>
+        </div>
     </div>
   </div>
 </div>
