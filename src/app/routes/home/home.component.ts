@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // this.customerService.create();
-    // let test = this.customerService.read();
+    let test = this.customerService.read();
     this.searchControl.valueChanges.subscribe( val => console.log(`Hello ${val}`));
   }
 
