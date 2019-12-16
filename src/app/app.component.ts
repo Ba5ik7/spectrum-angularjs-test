@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'spectrum-angularjs-test';
+  title = 'Spectrum AngularJS Test';
 }

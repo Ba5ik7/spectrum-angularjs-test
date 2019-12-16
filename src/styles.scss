@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+
+// Color
+@import "sass/color-variables";
+@import "sass/color-classes";
+
+// Variables;
+@import "sass/variables";
+
+// Reset
+@import "sass/normalize";
+
+// components
+@import "sass/global";
+@import "sass/badges";
+@import "sass/icons-material-design";
+@import "sass/grid";
+@import "sass/navbar";
+@import "sass/typography";
+@import "sass/transitions";
+@import "sass/cards";
+@import "sass/toast";
+@import "sass/tabs";
+@import "sass/tooltip";
+@import "sass/buttons";
+@import "sass/dropdown";
+@import "sass/waves";
+@import "sass/modal";
+@import "sass/collapsible";
+@import "sass/chips";
+@import "sass/materialbox";
+@import "sass/forms/forms";
+@import "sass/table_of_contents";
+@import "sass/sidenav";
+@import "sass/preloader";
+@import "sass/slider";
+@import "sass/carousel";
+@import "sass/tapTarget";
+@import "sass/pulse";
+@import "sass/datepicker";
+@import "sass/timepicker";
