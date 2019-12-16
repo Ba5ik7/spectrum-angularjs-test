@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/interfaces/customer';
 
 @Component({
   selector: 'app-customer-details',
@@ -6,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-details.component.scss']
 })
 export class CustomerDetailsComponent implements OnInit {
+  customer: Customer;
 
-  constructor() { }
+  constructor(private customerService: CustomerService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // console.log(this.route.snapshot.params.id);
   }
 
 }

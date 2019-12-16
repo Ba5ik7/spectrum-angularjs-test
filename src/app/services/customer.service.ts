@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, Subject } from 'rxjs';
-import { map, flatMap, filter, reduce, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 import { Customer } from '../interfaces/customer';
 
