@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/interfaces/customer';
-import { Observable, from } from 'rxjs';
 
 @Component({
   selector: 'app-customer-details',
@@ -11,15 +10,14 @@ import { Observable, from } from 'rxjs';
   styleUrls: ['./customer-details.component.scss']
 })
 export class CustomerDetailsComponent implements OnInit {
-  customer: Customer;
-  customers$: Observable<any>;
+
+  currentCustomer: Customer;
 
   constructor(private customerService: CustomerService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // console.log(this.route.snapshot.params.id);
-    this.customers$ = from(this.customerService.customers);
-    console.log(this.customers$, 'Customer');
+    this.customerService.currentCustomersId = parseInt(this.route.snapshot.params.id);
+    this.customerService.setCurrentCustomer();
+    this.customerService.currentCustomer$.subscribe(val => this.currentCustomer = val);
   }
-
 }

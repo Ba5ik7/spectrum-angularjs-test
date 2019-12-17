@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { of } from 'rxjs';
+import { of, BehaviorSubject } from 'rxjs';
 import { Customer } from '../interfaces/customer';
 
 @Injectable({
@@ -9,8 +9,13 @@ import { Customer } from '../interfaces/customer';
 })
 export class CustomerService {
 
+  customer: Customer;
+
   customers: Array<Customer> = new Array();
   customers$ = of(this.customers);
+
+  currentCustomersId: number;
+  currentCustomer$: BehaviorSubject<Customer> = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { 
     this.fetchCustomers();
@@ -18,7 +23,18 @@ export class CustomerService {
 
   fetchCustomers() {
     this.http.get('https://jsonplaceholder.typicode.com/users')
-    .subscribe( data => this.customers.push(...data));
+    .subscribe( data => {
+      this.customers.push(...data);
+      this.setCurrentCustomer();
+    });
+  }
+
+  setCurrentCustomer() {
+    this.currentCustomer$.next(this.customers.find(val => val.id === this.currentCustomersId));
+  }
+
+  getCustomerByID(): Customer {
+    return
   }
 
   create(customer: Customer) {
@@ -32,4 +48,5 @@ export class CustomerService {
   delete(customerID: number) {
 
   }
+
 }
