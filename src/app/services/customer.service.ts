@@ -22,7 +22,7 @@ export class CustomerService {
   }
 
   fetchCustomers() {
-    this.http.get('https://jsonplaceholder.typicode.com/users')
+    this.http.get<Customer[]>('https://jsonplaceholder.typicode.com/users')
     .subscribe( data => {
       this.customers.push(...data);
       this.setCurrentCustomer();

@@ -20,4 +20,9 @@ export class CustomerDetailsComponent implements OnInit {
     this.customerService.setCurrentCustomer();
     this.customerService.currentCustomer$.subscribe(val => this.currentCustomer = val);
   }
+
+
+  deleteCustomerComfirm(event: Event) {
+
+  }
 }

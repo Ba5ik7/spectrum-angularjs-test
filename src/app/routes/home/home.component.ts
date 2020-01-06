@@ -15,14 +15,25 @@ export class HomeComponent implements OnInit {
   filter$: Observable<string>;
   filteredCustomers$: Observable<Customer[]>;
 
+  showResults: boolean = true;
+
   constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
     this.filter$ = this.searchControl.valueChanges.pipe(startWith(''));
+
     this.filteredCustomers$ = combineLatest(this.customerService.customers$, this.filter$).pipe(
       map(([customers, filterString]) => {
-        return customers.filter(customers => customers.name.indexOf(filterString) !== -1)
+        if(filterString === '') return [];
+
+        const pattern = filterString.split('').map(v => `(?=.*${v})`).join('');
+        const regex = new RegExp(`${pattern}`, 'gi');
+
+        // return customers.filter(customers => regex.exec(customers.name));
+        return customers.filter(customers => customers.name.match(regex));
       })
     );
+
+    this.filteredCustomers$.subscribe(data => this.showResults = data.length > 0 ? true : false);
   }
 }
