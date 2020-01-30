@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Create a Customer</span>
+        <!-- <ul>
+          <li>Id: {{currentCustomer?.id}}</li>
+          <li>Name: {{currentCustomer?.name}}</li>
+          <li>Points: {{currentCustomer?.points}}</li>
+          <li>Name: {{currentCustomer?.transactions}}</li>
+        </ul> -->
+        <form [formGroup]="createCustomerForm">
+          <div class="row">
+            <input-field
+              [control]="customerId"
+              inputId="customer_id_input"
+              labelText="Customer's ID"
+              wrapperClasses='col s12 m6'></input-field>
+            <input-field
+              [control]="customerFirstName"
+              inputId="customer_first_input"
+              labelText="First Name"
+              wrapperClasses='col s12 m6'></input-field>
+            <input-field
+              [control]="customerLasttName"
+              inputId="customer_last_input"
+              labelText="Last Name"
+              wrapperClasses='col s12 m6'></input-field>
+          </div>
+        </form>
+      </div>
+      <div class="card-action">
+        <a (click)="deleteCustomerComfirm($event)" class="green-text cursor">Create</a>
+        <a routerLink="/" class="red-text">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

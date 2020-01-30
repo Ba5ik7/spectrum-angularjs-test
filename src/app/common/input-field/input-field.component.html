@@ -3,7 +3,7 @@
     [id]=inputId
     [ngClass]=inputClasses
     [type]=inputType
-    [formControl]=control
+    [formControlName]=control
     (focus)=onFocus($event)
     (blur)=onBlur($event)>
   <label [for]=inputId [ngClass]="{'active': isActive, labelClasses: true}"  >{{labelText}}</label>

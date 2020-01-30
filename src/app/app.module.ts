@@ -11,6 +11,7 @@ import { HomeComponent } from './routes/home/home.component';
 import { CustomerDetailsComponent } from './routes/customer-details/customer-details.component';
 import { InputFieldComponent } from './common/input-field/input-field.component';
 import { SearchResultListComponent } from './common/search-result-list/search-result-list.component';
+import { CustomerCreateComponent } from './routes/customer-create/customer-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchResultListComponent } from './common/search-result-list/search-re
     HomeComponent,
     CustomerDetailsComponent,
     InputFieldComponent,
-    SearchResultListComponent
+    SearchResultListComponent,
+    CustomerCreateComponent
   ],
   imports: [
     BrowserModule,

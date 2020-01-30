@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './routes/home/home.component';
 import { CustomerDetailsComponent } from './routes/customer-details/customer-details.component';
+import { CustomerCreateComponent } from './routes/customer-create/customer-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: {animation: 'home'} },
   { path: 'customer-details/:id', component: CustomerDetailsComponent },
+  { path: 'customer-create', component: CustomerCreateComponent }
 ];
 
 @NgModule({
