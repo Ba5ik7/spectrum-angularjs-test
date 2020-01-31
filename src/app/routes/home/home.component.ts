@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Observable, combineLatest } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Customer } from 'src/app/interfaces/customer';
@@ -11,17 +11,20 @@ import { Customer } from 'src/app/interfaces/customer';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  searchControl: FormControl = new FormControl('');
+
   filter$: Observable<string>;
   filteredCustomers$: Observable<Customer[]>;
 
   showResults: boolean = true;
 
-  constructor(private customerService: CustomerService) { }
+  searchForm = this.fb.group({
+    searchControl: ['', Validators.required],
+  });
+  
+  constructor(private customerService: CustomerService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.filter$ = this.searchControl.valueChanges.pipe(startWith(''));
-
+    this.filter$ = this.searchForm.get('searchControl').valueChanges.pipe(startWith(''));
     this.filteredCustomers$ = combineLatest(this.customerService.customers$, this.filter$).pipe(
       map(([customers, filterString]) => {
         if(filterString === '') return [];

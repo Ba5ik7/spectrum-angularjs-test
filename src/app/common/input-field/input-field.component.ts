@@ -1,13 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'input-field',
   templateUrl: './input-field.component.html',
-  styleUrls: ['./input-field.component.scss']
+  styleUrls: ['./input-field.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputFieldComponent),
+      multi: true
+    }
+  ]
 })
-export class InputFieldComponent implements OnInit {
-  @Input() control: FormControl = new FormControl('');
+export class InputFieldComponent implements ControlValueAccessor {
 
   @Input() helperText: string;
   @Input() helperTextClasses: string;
@@ -18,26 +24,40 @@ export class InputFieldComponent implements OnInit {
   @Input() inputId: string;
   @Input() inputType: string = 'text';
   @Input() inputClasses: string = 'validate';
-  
+
   @Input() wrapperClasses: string = '';
 
-  inputModel: any = '';
   isActive: boolean;
+
+  value: string;
+  onChange: () => void;
+  onTouched: () => void;
+  disable: boolean;
 
   constructor() { }
 
-  ngOnInit() {
-
-    console.log('https://medium.com/angular-in-depth/angular-nested-reactive-forms-using-cvas-b394ba2e5d0d');
-    
+  writeValue(value: string): void {
+    this.value = value ? value : '';
   }
 
-  private onBlur(event) {
-    // console.log(this.control);
-    this.isActive = this.control.value !== '';
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
   }
 
-  private onFocus(event) {
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  onBlur(event) {
+    this.isActive = event.target.value !== '';
+    this.onTouched();
+  }
+
+  onFocus() {
     this.isActive = true;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this.disable = isDisabled;
   }
 }

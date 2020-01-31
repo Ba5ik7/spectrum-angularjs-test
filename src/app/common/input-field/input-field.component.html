@@ -3,9 +3,9 @@
     [id]=inputId
     [ngClass]=inputClasses
     [type]=inputType
-    [formControlName]=control
-    (focus)=onFocus($event)
-    (blur)=onBlur($event)>
+    (input)=onChange($event.target.value)
+    (blur)=onBlur($event)
+    (focus)=onFocus()>
   <label [for]=inputId [ngClass]="{'active': isActive, labelClasses: true}"  >{{labelText}}</label>
   <span class="helper-text" [ngClass]=helperTextClasses>{{helperText}}</span>
 </div>

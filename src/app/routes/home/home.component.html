@@ -3,14 +3,16 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">Find Customer</span>
+        <form [formGroup]="searchForm">
         <div class="row">
           <input-field
-            [control]="searchControl"
+            formControlName="searchControl"
             inputId="customer_search_input"
             labelText="Type to search"
             wrapperClasses='col s12 m6'></input-field>
             <search-result-list [ngClass]="{'hide': !showResults}" class="col s12" [results]=filteredCustomers$ ></search-result-list>
         </div>
+        </form>
       </div>
       <div class="card-action">
         <a [routerLink]="['/customer-create']" >Create</a>

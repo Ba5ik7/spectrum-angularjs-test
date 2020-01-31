@@ -1,22 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-create',
   templateUrl: './customer-create.component.html',
   styleUrls: ['./customer-create.component.scss']
 })
-export class CustomerCreateComponent implements OnInit {
+export class CustomerCreateComponent {
 
-  createCustomerForm = new FormGroup({
-    customerId: new FormControl(''),
-    customerFirstName: new FormControl(''),
-    customerLastName: new FormControl(''),
+  createCustomerForm = this.fb.group({
+    customerId: ['', Validators.required],
+    customerFirstName: ['', Validators.required],
+    customerLastName: ['', Validators.required],
   });
-  
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor(private fb: FormBuilder) {}
 
 }
