@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { of, BehaviorSubject } from 'rxjs';
 import { Customer } from '../interfaces/customer';
 
+import { v1 as uuid } from 'uuid';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -47,6 +49,10 @@ export class CustomerService {
 
   delete(customerID: number) {
 
+  }
+
+  createGuid() {
+    return uuid();
   }
 
 }

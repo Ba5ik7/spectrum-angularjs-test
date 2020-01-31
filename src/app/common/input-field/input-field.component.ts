@@ -27,7 +27,7 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   @Input() wrapperClasses: string = '';
 
-  isActive: boolean;
+  isActive: boolean ;
 
   value: string;
   onChange: () => void;

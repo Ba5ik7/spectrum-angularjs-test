@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customer-create',
@@ -9,17 +10,15 @@ import { Validators, FormBuilder } from '@angular/forms';
 export class CustomerCreateComponent implements OnInit {
 
   createCustomerForm = this.fb.group({
-    customerId: ['Wes', Validators.required],
+    customerId: [this.customerService.createGuid(), Validators.required],
     customerFirstName: ['', Validators.required],
     customerLastName: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private customerService: CustomerService) { }
   
   ngOnInit() {
     this.createCustomerForm.get('customerId').disable();
-    console.log('this.createCustomerForm', this.createCustomerForm.get('customerId'));
-    
   }
 
 }
