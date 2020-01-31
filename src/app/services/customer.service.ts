@@ -16,7 +16,7 @@ export class CustomerService {
   customers: Array<Customer> = new Array();
   customers$ = of(this.customers);
 
-  currentCustomersId: number;
+  currentCustomersId: string;
   currentCustomer$: BehaviorSubject<Customer> = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { 
@@ -32,7 +32,7 @@ export class CustomerService {
   }
 
   setCurrentCustomer() {
-    this.currentCustomer$.next(this.customers.find(val => val.id === this.currentCustomersId));
+    this.currentCustomer$.next(this.customers.find(val => val.id == this.currentCustomersId));
   }
 
   getCustomerByID(): Customer {

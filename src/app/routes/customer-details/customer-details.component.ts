@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/interfaces/customer';
@@ -13,12 +13,15 @@ export class CustomerDetailsComponent implements OnInit {
 
   currentCustomer: Customer;
 
-  constructor(private customerService: CustomerService, private route: ActivatedRoute) { }
+  constructor(private customerService: CustomerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.customerService.currentCustomersId = parseInt(this.route.snapshot.params.id);
+    this.customerService.currentCustomersId = this.route.snapshot.params.id;
     this.customerService.setCurrentCustomer();
-    this.customerService.currentCustomer$.subscribe(val => this.currentCustomer = val);
+    this.customerService.currentCustomer$.subscribe(val => {
+      if (val === undefined) this.router.navigate(['']);
+      this.currentCustomer = val;
+    });
   }
 
 
