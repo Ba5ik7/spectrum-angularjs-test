@@ -1,7 +1,7 @@
 import { Transaction } from './transaction';
 
 export interface Customer {
-  id: number;
+  id: string;
   name: string;
   transactions: Array<Transaction>;
   points: number;

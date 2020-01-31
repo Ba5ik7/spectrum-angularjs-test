@@ -40,7 +40,7 @@ export class CustomerService {
   }
 
   create(customer: Customer) {
-
+    this.customers.push(customer);
   }
 
   update(customerID: number) {
