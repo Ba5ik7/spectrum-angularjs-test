@@ -5,7 +5,9 @@
     [type]=inputType
     (input)=onChange($event.target.value)
     (blur)=onBlur($event)
-    (focus)=onFocus()>
-  <label [for]=inputId [ngClass]="{'active': isActive, labelClasses: true}"  >{{labelText}}</label>
+    (focus)=onFocus()
+    [disabled]="disabled"
+    [value]=value >
+  <label [for]=inputId [ngClass]="{'active': isActive ? true : disabled ? true : false, labelClasses: true}"  >{{labelText}}</label>
   <span class="helper-text" [ngClass]=helperTextClasses>{{helperText}}</span>
 </div>

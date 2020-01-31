@@ -32,7 +32,7 @@ export class InputFieldComponent implements ControlValueAccessor {
   value: string;
   onChange: () => void;
   onTouched: () => void;
-  disable: boolean;
+  disabled: boolean;
 
   constructor() { }
 
@@ -58,6 +58,6 @@ export class InputFieldComponent implements ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this.disable = isDisabled;
+    this.disabled = isDisabled;
   }
 }
