@@ -41,7 +41,7 @@ export class CustomerDetailsComponent implements OnInit {
       buttons: [
         {
           id: 'model_primary_btn',
-          classes: 'btn mobile-primary',
+          classes: 'btn mobile-primary red',
           text: 'Confrim',
           action: 'cb'
         },
@@ -58,7 +58,6 @@ export class CustomerDetailsComponent implements OnInit {
   }
 
   deleteCustomer() {
-    console.log('Delete');
     this.customerService.delete(this.currentCustomer.id);
     this.toastService.push('Customer Deleted!');
     this.router.navigate(['']);

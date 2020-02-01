@@ -1,6 +1,7 @@
 <div class="modal" ngClass={{modal.modalClasses}}>
   <div class="modal-content">
-    <div class="modal-header">{{modal.title}}</div>
+    <!-- <div class="modal-header">{{modal.title}}</div> -->
+    <h4>{{modal.title}}</h4>
     <div class="loader" *ngIf="modal.isLoader">Loading...</div>
     <span [innerHTML]= modal.bodyContent></span>
   </div>

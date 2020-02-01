@@ -19,7 +19,7 @@
   overflow-y: auto;
 
   border-radius: 2px;
-  will-change: top, opacity;
+  will-change: top, opacity, transform;
 
   @media #{$medium-and-down} {
    width: 80%;
@@ -51,7 +51,7 @@
 }
 .modal-overlay {
   position: fixed;
-  z-index: 999;
+  z-index: 1002;
   top: -25%;
   left: 0;
   bottom: 0;
@@ -59,13 +59,8 @@
   height: 125%;
   width: 100%;
   background: #000;
-  display: none;
-
-  //
-  z-index: 1002;
   display: block;
   opacity: 0.5;
-  //
 
   will-change: opacity;
 }
