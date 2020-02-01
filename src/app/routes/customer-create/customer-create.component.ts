@@ -3,6 +3,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/interfaces/customer';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-customer-create',
@@ -17,7 +18,11 @@ export class CustomerCreateComponent implements OnInit {
     customerLastName: ['', Validators.required],
   });
  
-  constructor(private fb: FormBuilder, private customerService: CustomerService, private router: Router) { }
+  constructor(
+    private customerService: CustomerService,
+    private toastService: ToastService,
+    private fb: FormBuilder,
+    private router: Router) { }
   
   ngOnInit() {
     this.createCustomerForm.get('customerId').disable();
@@ -33,7 +38,8 @@ export class CustomerCreateComponent implements OnInit {
     }
 
     this.customerService.create(customer);
+
+    this.toastService.push('Customer Created!');
     this.router.navigate(['']);
-    
   }
 }

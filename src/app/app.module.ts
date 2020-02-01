@@ -12,6 +12,7 @@ import { CustomerDetailsComponent } from './routes/customer-details/customer-det
 import { InputFieldComponent } from './common/input-field/input-field.component';
 import { SearchResultListComponent } from './common/search-result-list/search-result-list.component';
 import { CustomerCreateComponent } from './routes/customer-create/customer-create.component';
+import { ToastComponent } from './common/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CustomerCreateComponent } from './routes/customer-create/customer-creat
     CustomerDetailsComponent,
     InputFieldComponent,
     SearchResultListComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
