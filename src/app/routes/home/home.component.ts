@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable, combineLatest } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Customer } from 'src/app/interfaces/customer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
     searchControl: ['', Validators.required],
   });
   
-  constructor(private customerService: CustomerService, private fb: FormBuilder) { }
+  constructor(private customerService: CustomerService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.filter$ = this.searchForm.get('searchControl').valueChanges.pipe(startWith(''));

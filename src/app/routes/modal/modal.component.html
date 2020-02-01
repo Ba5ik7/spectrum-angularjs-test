@@ -1,0 +1,20 @@
+<div class="modal" ngClass={{modal.modalClasses}}>
+  <div class="modal-content">
+    <div class="modal-header">{{modal.title}}</div>
+    <div class="loader" *ngIf="modal.isLoader">Loading...</div>
+    <span [innerHTML]= modal.bodyContent></span>
+  </div>
+  <div class="modal-footer">
+      <div>{{modal.footerContent}}</div>
+      <span *ngFor="let button of modal.buttons">
+        <button
+          type="button"
+          id={{button.id}}
+          class={{button.classes}}
+          (click)="actions(button.action)">
+          {{button.text}}
+        </button>
+      </span>
+  </div>
+</div>
+<div id="modal_overlay" class="modal-overlay"></div>

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { InputFieldComponent } from './common/input-field/input-field.component'
 import { SearchResultListComponent } from './common/search-result-list/search-result-list.component';
 import { CustomerCreateComponent } from './routes/customer-create/customer-create.component';
 import { ToastComponent } from './common/toast/toast.component';
+import { ModalComponent } from './routes/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { ToastComponent } from './common/toast/toast.component';
     InputFieldComponent,
     SearchResultListComponent,
     CustomerCreateComponent,
-    ToastComponent
+    ToastComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

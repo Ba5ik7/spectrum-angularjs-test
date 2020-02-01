@@ -5,8 +5,10 @@
 
   @extend .z-depth-5;
 
-  display: none;
+  z-index: 1003;
+  display: block;
   position: fixed;
+  top: 10%;
   left: 0;
   right: 0;
   background-color: #fafafa;
@@ -58,6 +60,12 @@
   width: 100%;
   background: #000;
   display: none;
+
+  //
+  z-index: 1002;
+  display: block;
+  opacity: 0.5;
+  //
 
   will-change: opacity;
 }
