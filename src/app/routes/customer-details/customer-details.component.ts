@@ -59,6 +59,7 @@ export class CustomerDetailsComponent implements OnInit {
 
   deleteCustomer() {
     console.log('Delete');
+    this.customerService.delete(this.currentCustomer.id);
     this.toastService.push('Customer Deleted!');
     this.router.navigate(['']);
   }

@@ -47,8 +47,14 @@ export class CustomerService {
 
   }
 
-  delete(customerID: number) {
+  delete(customerID: string) {
+    let index = -1;
+    this.customers.filter((value, i) => {
+      if(value.id == customerID) index = i;
+      return value.id == customerID;
+    });
 
+    if (index !== -1) this.customers.splice(index, 1);
   }
 
   createGuid() {

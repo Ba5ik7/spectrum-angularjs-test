@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ModalService {
  
-  modal$: BehaviorSubject<object> = new BehaviorSubject({});
+  modal$: BehaviorSubject<object> = new BehaviorSubject(null);
 
   constructor() { }
 }
