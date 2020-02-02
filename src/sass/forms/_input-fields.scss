@@ -8,7 +8,7 @@
 }
 
 /* Text inputs */
-
+input,
 input:not([type]),
 input[type=text]:not(.browser-default),
 input[type=password]:not(.browser-default),
@@ -37,6 +37,7 @@ textarea.materialize-textarea {
   box-shadow: none;
   box-sizing: content-box;
   transition: box-shadow .3s, border .3s;
+  color: #000;
 
   // Disabled input style
   &:disabled,

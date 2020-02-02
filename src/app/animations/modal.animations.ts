@@ -1,6 +1,6 @@
 import { trigger, transition, group, style, animate, query } from '@angular/animations';
 
-export const ModalAnimation = trigger('routeAnimations', [
+export const ModalAnimation = trigger('modalAnimations', [
   transition('* => Modal', [
     query('.modal-overlay', [
         style({

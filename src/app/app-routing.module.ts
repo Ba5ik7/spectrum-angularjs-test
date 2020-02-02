@@ -7,10 +7,10 @@ import { CustomerCreateComponent } from './routes/customer-create/customer-creat
 import { ModalComponent } from './routes/modal/modal.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: {animation: 'home'} },
+  { path: '', component: HomeComponent, data: { animation: 'Home' }},
   { path: 'customer-details/:id', component: CustomerDetailsComponent },
-  { path: 'customer-create', component: CustomerCreateComponent },
-  { path: 'modal', component: ModalComponent, outlet: 'modal', data: {animation: 'Modal'}  }
+  { path: 'customer-create', component: CustomerCreateComponent, data: { animation: 'CustomerCreate' }  },
+  { path: 'modal', component: ModalComponent, outlet: 'modal', data: { animation: 'Modal' }  }
 ];
 
 @NgModule({

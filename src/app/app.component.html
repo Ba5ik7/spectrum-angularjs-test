@@ -1,9 +1,11 @@
 <app-header></app-header>
 <main class="container">
-  <router-outlet></router-outlet>
+  <div [@routeAnimations]="prepareRoute(outlet)" >
+    <router-outlet #outlet="outlet" ></router-outlet>
+  </div>
 </main>
 <app-footer class="page-footer"></app-footer>
-<div [@routeAnimations]="prepareRoute(outlet)" >
-  <router-outlet #outlet="outlet" name="modal"></router-outlet>
+<div [@modalAnimations]="prepareRoute(outletAux)" >
+  <router-outlet #outletAux="outlet" name="modal"></router-outlet>
 </div>
 <toast></toast>

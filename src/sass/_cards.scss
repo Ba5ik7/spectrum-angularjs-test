@@ -41,7 +41,7 @@
       max-height: 100%;
       overflow: hidden;
     }
-    .card-action {
+    .card {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -160,8 +160,8 @@
     &:last-child {
       border-radius: 0 0 2px 2px;
     }
-    background-color: inherit; // Use inherit to inherit color classes
-    border-top: 1px solid rgba(160,160,160,.2);
+    // background-color: inherit; // Use inherit to inherit color classes
+    // border-top: 1px solid rgba(160,160,160,.2);
     position: relative;
     padding: 16px $card-padding;
 

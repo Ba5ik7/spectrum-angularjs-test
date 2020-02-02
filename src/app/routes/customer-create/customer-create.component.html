@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12">
-    <div class="card">
+    <div class="card indigo accent-3">
       <div class="card-content">
         <span class="card-title">Create a Customer</span>
         <form [formGroup]="createCustomerForm">
@@ -14,18 +14,18 @@
               formControlName="customerFirstName"
               inputId="customer_first_input"
               labelText="First Name"
-              wrapperClasses='col s12 m6'></input-field>
+              wrapperClasses='col s12 m6 white-text'></input-field>
             <input-field
               formControlName="customerLastName"
               inputId="customer_last_input"
               labelText="Last Name"
-              wrapperClasses='col s12 m6'></input-field>
+              wrapperClasses='col s12 m6 white-text'></input-field>
           </div>
         </form>
       </div>
       <div class="card-action">
-        <a (click)="createCustomer($event)" class="green-text cursor">Create</a>
-        <a routerLink="/" >Cancel</a>
+        <a routerLink="/" class="white-text">Back</a>
+        <a (click)="createCustomer($event)" class="btn cursor">Create</a>
       </div>
     </div>
   </div>
