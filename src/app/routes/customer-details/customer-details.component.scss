@@ -1,0 +1,12 @@
+:host {
+    .card, 
+    ::ng-deep input,
+    ::ng-deep label {
+      color: #FFF!important;
+    }
+    .customer-id {
+        float: right;
+        font-size: 1rem;
+    }
+    .customer-transactions {}
+  }

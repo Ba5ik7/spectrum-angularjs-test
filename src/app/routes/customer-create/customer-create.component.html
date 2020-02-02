@@ -3,13 +3,14 @@
     <div class="card indigo accent-3">
       <div class="card-content">
         <span class="card-title">Create a Customer</span>
+ 
         <form [formGroup]="createCustomerForm">
           <div class="row">
-            <input-field
+            <!-- <input-field
               formControlName="customerId"
               inputId="customer_id_input"
               labelText="Customer's ID"
-              wrapperClasses='col s12'></input-field>
+              wrapperClasses='col s12'></input-field> -->
             <input-field
               formControlName="customerFirstName"
               inputId="customer_first_input"
@@ -19,6 +20,16 @@
               formControlName="customerLastName"
               inputId="customer_last_input"
               labelText="Last Name"
+              wrapperClasses='col s12 m6 white-text'></input-field>
+            <input-field
+              formControlName="customerEmail"
+              inputId="customer_email_input"
+              labelText="Email"
+              wrapperClasses='col s12 m6 white-text'></input-field>
+            <input-field
+              formControlName="customerPhone"
+              inputId="customer_phone_input"
+              labelText="Phone"
               wrapperClasses='col s12 m6 white-text'></input-field>
           </div>
         </form>

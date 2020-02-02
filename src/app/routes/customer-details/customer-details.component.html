@@ -1,18 +1,26 @@
 <div class="row">
   <div class="col s12">
-    <div class="card">
+    <div class="card indigo accent-3 ">
       <div class="card-content">
-        <span class="card-title">Customer's Details</span>
+        <span class="card-title">Customer's Details<span class="customer-id">Customer ID: {{currentCustomer?.id}}</span></span>
+        <div class="divider"></div>
         <ul>
-          <li>Id: {{currentCustomer?.id}}</li>
-          <li>Name: {{currentCustomer?.name}}</li>
-          <li>Points: {{currentCustomer?.points}}</li>
-          <li>Name: {{currentCustomer?.transactions}}</li>
+          <li class="flow-text">{{currentCustomer?.name}}</li>
+          <li>Phone: {{currentCustomer?.phone}}</li>
+          <li>Email: {{currentCustomer?.email}}</li>
         </ul>
+        <span class="card-title">Customer's Points</span>
+        <div class="divider"></div>
+        <ul>
+          <li class="flow-text">{{currentCustomer?.points}}10,300</li>
+        </ul>
+        <span class="card-title">Customer's Transactions{{currentCustomer?.transactions}}</span>
+        <div class="divider"></div>
       </div>
+      
       <div class="card-action">
-        <a routerLink="/" class="blue-text">Back</a>
-        <a (click)="deleteCustomerComfirm($event)" class="red-text cursor">Delete</a>
+        <a routerLink="/" class="white-text">Back</a>
+        <a (click)="deleteCustomerComfirm($event)" class="btn red cursor">Delete</a>
       </div>
     </div>
   </div>

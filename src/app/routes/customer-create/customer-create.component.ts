@@ -16,6 +16,9 @@ export class CustomerCreateComponent implements OnInit {
     customerId: [this.customerService.createGuid(), Validators.required],
     customerFirstName: ['', Validators.required],
     customerLastName: ['', Validators.required],
+    customerEmail: ['', Validators.required],
+    customerPhone: ['', Validators.required],
+
   });
  
   constructor(
@@ -33,6 +36,8 @@ export class CustomerCreateComponent implements OnInit {
     const customer: Customer = {
       id: form.get('customerId').value,
       name: `${form.get('customerFirstName').value} ${form.get('customerLastName').value}`,
+      email: form.get('customerEmail').value,
+      phone: form.get('customerPhone').value,
       points: 0,
       transactions: []
     }
