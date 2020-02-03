@@ -5,6 +5,7 @@ import { of, BehaviorSubject } from 'rxjs';
 import { Customer } from '../interfaces/customer';
 
 import { v1 as uuid } from 'uuid';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,16 @@ export class CustomerService {
     return
   }
 
-  create(customer: Customer) {
+  create(form: FormGroup) {
+    // Move this to service
+    const customer: Customer = {
+      id: form.get('customerId').value,
+      name: `${form.get('customerFirstName').value} ${form.get('customerLastName').value}`,
+      email: form.get('customerEmail').value,
+      phone: form.get('customerPhone').value,
+      points: 0,
+      transactions: []
+    }
     this.customers.push(customer);
   }
 

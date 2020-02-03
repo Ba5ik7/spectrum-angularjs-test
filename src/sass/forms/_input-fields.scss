@@ -210,7 +210,8 @@ textarea.materialize-textarea {
       left: 0;
     }
 
-    position: relative;
+    position: absolute;
+    margin-top: -8px;
     min-height: 18px;
     display: block;
     font-size: 12px;

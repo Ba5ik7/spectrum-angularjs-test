@@ -8,6 +8,7 @@
     (focus)=onFocus()
     [disabled]="disabled"
     [value]=value >
-  <label [for]=inputId [ngClass]="{'active': isActive ? true : disabled ? true : false, labelClasses: true}"  >{{labelText}}</label>
-  <span class="helper-text" [ngClass]=helperTextClasses>{{helperText}}</span>
+  <label [for]=inputId [ngClass]="{'active': isActive ? true : disabled ? true : false, labelClasses: true}">{{labelText}}</label>
+  <span *ngIf="valid" class="helper-text">{{helperText}}</span>
+  <div *ngIf="!valid" [ngClass]="{'red-text': escalateMsg, 'helper-text': true}">{{error}}</div>
 </div>

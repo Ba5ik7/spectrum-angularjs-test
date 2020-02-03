@@ -1,16 +1,22 @@
-import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input, Self } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { ValidationsService } from 'src/app/services/validations.service';
 
 @Component({
   selector: 'input-field',
   templateUrl: './input-field.component.html',
   styleUrls: ['./input-field.component.scss'],
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputFieldComponent),
-      multi: true
-    }
+    // {
+    //   provide: NG_VALUE_ACCESSOR,
+    //   useExisting: forwardRef(() => InputFieldComponent),
+    //   multi: true
+    // },
+    // {
+    //   provide: NG_VALIDATORS,
+    //   useExisting: InputFieldComponent,
+    //   multi: true
+    // }  
   ]
 })
 export class InputFieldComponent implements ControlValueAccessor {
@@ -29,12 +35,29 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   isActive: boolean ;
 
+  error: string;
+  escalateMsg: boolean = true;
   value: string;
   onChange: () => void;
   onTouched: () => void;
   disabled: boolean;
+  valid:boolean = true;
 
-  constructor() { }
+  constructor(@Self() public controlDir: NgControl) {
+    controlDir.valueAccessor = this;
+  }
+
+  ngOnInit() {
+    this.controlDir.valueChanges.subscribe((val) => this.valueChange(val));    
+  }
+
+  valueChange(val): void {
+    this.valid = this.controlDir.control.status !== 'INVALID';
+    if(this.valid === false) {
+      const errorsMessages: any = ValidationsService.getValidatorErrorMessage(this.controlDir.errors);
+      this.error = errorsMessages[0];
+    }
+  }
 
   writeValue(value: string): void {
     this.value = value ? value : '';
@@ -50,11 +73,13 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   onBlur(event) {
     this.isActive = event.target.value !== '';
+    this.escalateMsg = this.valid === false;
     this.onTouched();
   }
 
   onFocus() {
     this.isActive = true;
+    this.escalateMsg = false;
   }
 
   setDisabledState?(isDisabled: boolean): void {

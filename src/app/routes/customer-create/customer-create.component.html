@@ -13,18 +13,21 @@
               wrapperClasses='col s12'></input-field> -->
             <input-field
               formControlName="customerFirstName"
-              inputId="customer_first_input"
               labelText="First Name"
+              helperText=""
+              inputId="customer_first_input"
               wrapperClasses='col s12 m6 white-text'></input-field>
             <input-field
               formControlName="customerLastName"
-              inputId="customer_last_input"
               labelText="Last Name"
+              helperText=""
+              inputId="customer_last_input"
               wrapperClasses='col s12 m6 white-text'></input-field>
             <input-field
               formControlName="customerEmail"
-              inputId="customer_email_input"
               labelText="Email"
+              helperText=""
+              inputId="customer_email_input"
               wrapperClasses='col s12 m6 white-text'></input-field>
             <input-field
               formControlName="customerPhone"
@@ -36,7 +39,7 @@
       </div>
       <div class="card-action">
         <a routerLink="/" class="white-text">Back</a>
-        <a (click)="createCustomer($event)" class="btn cursor">Create</a>
+        <button type="submit"  (click)="createCustomer($event)" class="btn cursor">Create</button>
       </div>
     </div>
   </div>
