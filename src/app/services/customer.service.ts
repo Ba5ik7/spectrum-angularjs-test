@@ -35,14 +35,14 @@ export class CustomerService {
   }
   
   create(form: FormGroup) {
-    const customer: Customer = {
-      name: `${form.get('customerFirstName').value} ${form.get('customerLastName').value}`,
-      email: form.get('customerEmail').value,
-      phone: form.get('customerPhone').value,
-    }
+    // const customer: Customer = {
+    //   name: `${form.get('customerFirstName').value} ${form.get('customerLastName').value}`,
+    //   email: form.get('customerEmail').value,
+    //   phone: form.get('customerPhone').value,
+    // }
     
-    this.http.post<Customer>('/api/customer/create', customer)
-    .subscribe((data: Customer) => this.customers.push(data));
+    // this.http.post<Customer>('/api/customer/create', customer)
+    // .subscribe((data: Customer) => this.customers.push(data));
   }
 
   update(customerID: number) {

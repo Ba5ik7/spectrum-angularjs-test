@@ -27,7 +27,10 @@ export interface Customer {
   },
   employment: {
     type: string;
-    address: {
+    companyName?: string;
+    title?: string;
+    phone?: string;
+    address?: {
       street: string;
       secondaryStreet: string;
       state: string;
