@@ -1,7 +1,7 @@
 import { Transaction } from './transaction';
 
 export interface Customer {
-  id: string;
+  id?: string;
   name: string;
   email: string;
   phone:string;

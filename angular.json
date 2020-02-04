@@ -17,6 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            // "baseHref" : "/spectrum/",
+            // "deployUrl": "/spectrum/",
             "outputPath": "dist/spectrum-angularjs-test",
             "index": "src/index.html",
             "main": "src/main.ts",

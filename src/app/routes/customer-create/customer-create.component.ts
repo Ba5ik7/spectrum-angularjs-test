@@ -13,7 +13,6 @@ import { ValidationsService } from 'src/app/services/validations.service';
 export class CustomerCreateComponent {
 
   createCustomerForm = this.fb.group({
-    customerId: [this.customerService.createGuid(), [Validators.required]],
     customerFirstName: ['', [Validators.required, ValidationsService.nameValidator]],
     customerLastName: ['', [Validators.required, ValidationsService.nameValidator]],
     customerEmail: ['', [Validators.required, ValidationsService.emailValidator]],

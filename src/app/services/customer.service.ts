@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { of, BehaviorSubject } from 'rxjs';
 import { Customer } from '../interfaces/customer';
 
-import { v1 as uuid } from 'uuid';
 import { FormGroup } from '@angular/forms';
 
 @Injectable({
@@ -25,11 +24,8 @@ export class CustomerService {
   }
 
   fetchCustomers() {
-    this.http.get<Customer[]>('https://jsonplaceholder.typicode.com/users')
-    .subscribe( data => {
-      this.customers.push(...data);
-      this.setCurrentCustomer();
-    });
+    this.http.get<Customer[]>('/api/customer/customers')
+    .subscribe((data: Customer[]) => this.customers.push(...data));
   }
 
   setCurrentCustomer() {
@@ -37,20 +33,20 @@ export class CustomerService {
   }
 
   getCustomerByID(): Customer {
-    return
+    return 
   }
 
   create(form: FormGroup) {
-    // Move this to service
     const customer: Customer = {
-      id: form.get('customerId').value,
       name: `${form.get('customerFirstName').value} ${form.get('customerLastName').value}`,
       email: form.get('customerEmail').value,
       phone: form.get('customerPhone').value,
       points: 0,
       transactions: []
     }
-    this.customers.push(customer);
+    
+    this.http.post<Customer>('/api/customer/create', customer)
+    .subscribe((data: Customer) => this.customers.push(data));
   }
 
   update(customerID: number) {
@@ -65,10 +61,6 @@ export class CustomerService {
     });
 
     if (index !== -1) this.customers.splice(index, 1);
-  }
-
-  createGuid() {
-    return uuid();
   }
 
 }
