@@ -12,12 +12,20 @@ import { HomeComponent } from './routes/home/home.component';
 import { CustomerDetailsComponent } from './routes/customer-details/customer-details.component';
 import { InputFieldComponent } from './common/input-field/input-field.component';
 import { SearchResultListComponent } from './common/search-result-list/search-result-list.component';
-import { CustomerCreateComponent } from './routes/customer-create/customer-create.component';
 import { ToastComponent } from './common/toast/toast.component';
 import { ModalComponent } from './routes/modal/modal.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+import { CustomerCreateComponent } from './routes/customer-create/customer-create.component';
+import { CustomerContactComponent } from './routes/customer-create/customer-contact/customer-contact.component';
+import { CustomerAddressComponent } from './routes/customer-create/customer-address/customer-address.component';
+import { CustomerPersonalComponent } from './routes/customer-create/customer-personal/customer-personal.component';
+import { CustomerEmploymentComponent } from './routes/customer-create/customer-employment/customer-employment.component';
+import { CustomerAgreementComponent } from './routes/customer-create/customer-agreement/customer-agreement.component';
+import { CustomerCredentialsComponent } from './routes/customer-create/customer-credentials/customer-credentials.component';
+import { CustomerAccountTypeComponent } from './routes/customer-create/customer-account-type/customer-account-type.component';
  
-export let options: Partial<IConfig> | (() => Partial<IConfig>);
+export let NgxMaskOptions: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -25,19 +33,26 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    CustomerDetailsComponent,
     InputFieldComponent,
     SearchResultListComponent,
     CustomerCreateComponent,
     ToastComponent,
-    ModalComponent
+    ModalComponent,
+    CustomerDetailsComponent,
+    CustomerContactComponent,
+    CustomerAddressComponent,
+    CustomerPersonalComponent,
+    CustomerEmploymentComponent,
+    CustomerAgreementComponent,
+    CustomerCredentialsComponent,
+    CustomerAccountTypeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxMaskModule.forRoot(options),
+    NgxMaskModule.forRoot(NgxMaskOptions),
     ReactiveFormsModule
   ],
   providers: [],
