@@ -15,6 +15,9 @@ import { SearchResultListComponent } from './common/search-result-list/search-re
 import { CustomerCreateComponent } from './routes/customer-create/customer-create.component';
 import { ToastComponent } from './common/toast/toast.component';
 import { ModalComponent } from './routes/modal/modal.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+ 
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { ModalComponent } from './routes/modal/modal.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxMaskModule.forRoot(options),
     ReactiveFormsModule
   ],
   providers: [],

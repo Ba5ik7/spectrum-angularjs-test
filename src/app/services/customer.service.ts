@@ -23,19 +23,15 @@ export class CustomerService {
     this.fetchCustomers();
   }
 
-  fetchCustomers() {
-    this.http.get<Customer[]>('/api/customer/customers')
-    .subscribe((data: Customer[]) => this.customers.push(...data));
-  }
-
   setCurrentCustomer() {
     this.currentCustomer$.next(this.customers.find(val => val.id == this.currentCustomersId));
   }
 
-  getCustomerByID(): Customer {
-    return 
+  fetchCustomers() {
+    this.http.get<Customer[]>('/api/customer/customers')
+    .subscribe((data: Customer[]) => this.customers.push(...data));
   }
-
+  
   create(form: FormGroup) {
     const customer: Customer = {
       name: `${form.get('customerFirstName').value} ${form.get('customerLastName').value}`,

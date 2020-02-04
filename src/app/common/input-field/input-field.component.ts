@@ -33,6 +33,8 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   @Input() wrapperClasses: string = '';
 
+  @Input() maskPattern: string = '';
+
   isActive: boolean ;
 
   error: string;
