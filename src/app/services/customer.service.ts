@@ -18,6 +18,8 @@ export class CustomerService {
 
   currentCustomersId: string;
   currentCustomer$: BehaviorSubject<Customer> = new BehaviorSubject(null);
+  
+  customerForm: FormGroup = null;
 
   constructor(private http: HttpClient) { 
     this.fetchCustomers();
@@ -37,8 +39,6 @@ export class CustomerService {
       name: `${form.get('customerFirstName').value} ${form.get('customerLastName').value}`,
       email: form.get('customerEmail').value,
       phone: form.get('customerPhone').value,
-      points: 0,
-      transactions: []
     }
     
     this.http.post<Customer>('/api/customer/create', customer)
