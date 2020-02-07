@@ -24,6 +24,7 @@ import { CustomerEmploymentComponent } from './routes/customer-create/customer-e
 import { CustomerAgreementComponent } from './routes/customer-create/customer-agreement/customer-agreement.component';
 import { CustomerCredentialsComponent } from './routes/customer-create/customer-credentials/customer-credentials.component';
 import { CustomerAccountTypeComponent } from './routes/customer-create/customer-account-type/customer-account-type.component';
+import { SelectBoxComponent } from './common/select-box/select-box.component';
  
 export let NgxMaskOptions: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -45,7 +46,8 @@ export let NgxMaskOptions: Partial<IConfig> | (() => Partial<IConfig>);
     CustomerEmploymentComponent,
     CustomerAgreementComponent,
     CustomerCredentialsComponent,
-    CustomerAccountTypeComponent
+    CustomerAccountTypeComponent,
+    SelectBoxComponent
   ],
   imports: [
     BrowserModule,

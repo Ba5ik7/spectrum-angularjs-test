@@ -1,0 +1,37 @@
+<div class="input-field" [ngClass]=wrapperClasses>
+  <div class="select-wrapper">
+    <input #selectInput
+      class="select-dropdown dropdown-trigger" 
+      type="text" 
+      readonly="true"
+      (input)=onChange($event.target.value)
+      (blur)=onBlur($event)
+      [value]=value.text
+      (keyup.arrowdown)=openDropdown($event)
+      (keyup.enter)=openDropdown($event)
+      (click)=openDropdown($event)>
+    <ul tabindex="0" [ngClass]="{ 'open': open, 'select-dropdown': true, 'dropdown-content': true }">
+      <li
+        tabindex="0" 
+        class="disabled"
+        [attr.data-id]=defaultOption.id
+        (keyup.arrowdown)=arrowDown($event)>{{defaultOption.text}}</li>
+      <li *ngFor="let item of options"
+        tabindex="0"
+        [id]=item.id
+        [attr.data-id]=item.id
+        [attr.data-text]=item.text
+        (keyup.arrowup)=arrowUp($event)
+        (keyup.arrowdown)=arrowDown($event)
+        (keydown.Tab)=closeDropdown($event)
+        (keyup.enter)=optionSelected($event)
+        (click)=optionSelected($event)>{{item.text}}</li>
+    </ul>
+    <svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+    <select>
+      <option>{{defaultOption.text}}</option>
+      <option *ngFor="let item of options" [id]=item.id [ngValue]=item>{{item.text}}</option>
+    </select>
+  </div>
+  <label>{{labelText}}</label>
+</div>

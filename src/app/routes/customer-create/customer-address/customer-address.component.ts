@@ -13,6 +13,13 @@ import { ValidationsService } from 'src/app/services/validations.service';
 export class CustomerAddressComponent implements OnInit {
 
   customerForm: FormGroup;
+  states = [
+    {text: 'Arizona', id: 'AZ', test: 'test'},
+    {text: 'California', id: 'CA'},
+    {text: 'Colorado', id: 'CO'},
+    {text: 'New York', id: 'NY'},
+    {text: 'Pennsylvania', id: 'PA'},
+  ];
  
   constructor(
     private customerService: CustomerService,
@@ -30,8 +37,8 @@ export class CustomerAddressComponent implements OnInit {
       customerAddress: ['', [Validators.required, ValidationsService.nameValidator]],
       customerSecondaryStreet: [],
       customerCity: ['', [Validators.required, ValidationsService.nameValidator]],
-      customerState: ['', [Validators.required, ValidationsService.emailValidator]],
-      customerZip: ['', [Validators.required, ValidationsService.phoneValidator]]
+      customerState: ['', [Validators.required]],
+      customerZip: ['', [Validators.required]]
     });
   }
 

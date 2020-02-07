@@ -9,33 +9,32 @@
               formControlName="customerAddress"
               labelText="Address"
               helperText=""
-              inputId="customer_fname_input"
-              wrapperClasses='col s12 m6 white-text'></input-field>
+              inputId="customer_address_input"
+              wrapperClasses='col s12 m6'></input-field>
             <input-field
               formControlName="customerSecondaryStreet"
               labelText="Address Line 2"
               helperText=""
-              inputId="customer_minitial_input"
+              inputId="customer_secondary_street_input"
               maskPattern="S"
-              wrapperClasses='col s12 m6 white-text'></input-field>
+              wrapperClasses='col s12 m6'></input-field>
             <input-field
               formControlName="customerCity"
               labelText="City"
               helperText=""
-              inputId="customer_lname_input"
-              wrapperClasses='col s12 m5 white-text'></input-field>
-            <input-field
+              inputId="customer_city_input"
+              wrapperClasses='col s12 m5'></input-field>
+            <select-box
               formControlName="customerState"
+              [options]=states
               labelText="State"
-              helperText=""
-              inputId="customer_email_input"
-              wrapperClasses='col s12 m5 white-text'></input-field>
+              inputId="customer_state_input"
+              wrapperClasses='col s12 m5'></select-box>
             <input-field
               formControlName="customerZip"
-              inputId="customer_phone_input"
+              inputId="customer_zip_input"
               labelText="Zip"
-              maskPattern="(000) 000 0000"
-              wrapperClasses='col s12 m2 white-text'></input-field>
+              wrapperClasses='col s12 m2'></input-field>
           </div>
         </form>
       </div>
