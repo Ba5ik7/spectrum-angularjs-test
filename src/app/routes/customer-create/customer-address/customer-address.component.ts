@@ -21,6 +21,12 @@ export class CustomerAddressComponent implements OnInit {
     {text: 'Pennsylvania', id: 'PA'},
   ];
  
+  checks: Array<any> = [
+    {text: 'descr1', value: false, id:'value1'},
+    {text: "descr2", value: false, id:'value2'},
+    {text: "descr3", value: true, id:'value3'}
+  ];
+
   constructor(
     private customerService: CustomerService,
     private toastService: ToastService,
@@ -38,8 +44,13 @@ export class CustomerAddressComponent implements OnInit {
       customerSecondaryStreet: [],
       customerCity: ['', [Validators.required, ValidationsService.nameValidator]],
       customerState: ['', [Validators.required]],
-      customerZip: ['', [Validators.required]]
+      customerZip: ['', [Validators.required]],
+      customerDifferentMailing: ['']
     });
+    this.customerForm.valueChanges.subscribe((val) => {
+      console.log(val.customerDifferentMailing);
+      val.customerDifferentMailing  
+    })
   }
 
   createCustomer() {

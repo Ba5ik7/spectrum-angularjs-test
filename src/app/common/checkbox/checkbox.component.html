@@ -1,0 +1,12 @@
+<span [ngClass]=wrapperClasses >
+  <label [ngClass]=labelClasses *ngFor="let item of checkboxes">
+    <input 
+      type="checkbox"
+      [id]=item.id
+      [ngClass]=item.classes
+      (click)=onClick($event)
+      [value]=item.value
+      [checked]=item.value/>
+    <span>{{item.text}}</span>
+  </label>
+</span>
