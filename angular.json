@@ -17,14 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            // "baseHref" : "/spectrum/",
-            // "deployUrl": "/spectrum/",
             "outputPath": "dist/spectrum-angularjs-test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -47,7 +45,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -126,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "spectrum-angularjs-test"
+    }
+  },
+  "defaultProject": "spectrum-angularjs-test",
+  "cli": {
+    "analytics": "0d580ea1-2287-4e84-9d2b-a8852fead075"
+  }
 }

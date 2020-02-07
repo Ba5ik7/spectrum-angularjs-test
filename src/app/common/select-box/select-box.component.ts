@@ -9,13 +9,13 @@ import { ValidationsService } from 'src/app/services/validations.service';
 })
 export class SelectBoxComponent implements ControlValueAccessor, OnInit {
   
-  @ViewChild('selectInput', { static: false }) el:ElementRef;
+  @ViewChild('selectInput') el:ElementRef;
 
   disabled: boolean;
   open: boolean = false;
   valid: boolean = true;
-  value: string;
-  defaultOption: object = { text: 'Choose A Value', id: 'default' };
+  value: any;
+  defaultOption: any = { text: 'Choose A Value', id: 'default' };
   
   @Input() labelText: string = 'Materialize Select';
   @Input() options:[];
