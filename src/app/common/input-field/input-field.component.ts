@@ -43,7 +43,7 @@ export class InputFieldComponent implements ControlValueAccessor {
   onChange: () => void;
   onTouched: () => void;
   disabled: boolean;
-  valid:boolean = true;
+  valid: boolean = true;
 
   constructor(@Self() public controlDir: NgControl) {
     controlDir.valueAccessor = this;
@@ -62,7 +62,10 @@ export class InputFieldComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string): void {
+    console.log(this.value);
     this.value = value ? value : '';
+    console.log(this.value);
+    
   }
 
   registerOnChange(fn: any): void {
